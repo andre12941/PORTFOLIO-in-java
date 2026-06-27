@@ -1,86 +1,122 @@
-package tarea01;
+package tarea02;
 
 import java.util.Scanner;
 
 /**
- * Ejercicio 1. C√°lculos aritm√©ticos.
+ * Ejercicio 1. SUELDOS DE EMPLEADOS.
  *
- * @author Indica el nombre del alumno/a
+ * @author Andres Morales de los Rios 
  */
-public class Ejercicio01 {
+public class Ejercicio01 {   
     
-    // Definici√≥n del enum
-
     public static void main(String[] args) {
 
         //----------------------------------------------
-        //          Declaraci√≥n de variables 
+        //          DeclaraciÛn de variables 
         //----------------------------------------------
+        // Constantes
+        
+        int sueldobase;
+        sueldobase  = 1500;
+        int extraPoraÒo;
+        extraPoraÒo = 50;
         // Variables de entrada
-        int x ; 
-        int y ; 
-        int z ;
-        
+        int aÒosEmpleado1;
+        int aÒosEmpleado2;
+        int aÒosEmpleado3; 
         // Variables de salida
-        double operacion1;
-        double operacion2;
-        double operacion3;
         
-        // Variables auxiliares
-        int num1;
-        int num2;
-        num1 = 3;
-        num2 = 8;
+        int pagaAlta;
+        pagaAlta = 100;
         
-        // Clase Scanner para petici√≥n de datos de entrada
-        Scanner teclado = new Scanner(System.in);
+        int pagaBaja;
+        pagaBaja = 20;
+        
+        //Variables auxiliares
+        short option;
+        
       
-        System.out.println("Introduce una cantidad para la variable x");
-        x = teclado.nextInt();
-        System.out.println("Introduce una cantidad para la variable y");
-        y = teclado.nextInt();
-        System.out.println("Introduce una cantidad para la variable z");
-        z = teclado.nextInt();
         
+        
+        // Clase Scanner para peticiÛn de datos de entrada
+      
         //----------------------------------------------
         //                Entrada de datos 
         //----------------------------------------------
-        System.out.println("C√ÅLCULOS ARITM√âTICOS");
-        System.out.println("--------------------");
+        System.out.println("Ejercicio 2: Sueldos de Empleados\n");
+        System.out.println("-----------------------------------------");      
         
-
+        
+        // Bloque 1: Sacamos por pantalla el men˙ de opciones y pedimos que introduzca una.
+        // En caso de introducir una opciÛn inv·lida, debemos indicarlo y volver a pedirla.  
+         
+        
+        System.out.println("Menu de Opciones");
+        System.out.println(" 1 = Calcular el Sueldo en Funcion de la Antiguedad");
+        System.out.println(" 2 = Calcular el coste anual y mensual de un empleado nuevo que acaba de llegar a la empresa");
+        System.out.println(" 3 = Salir del Programa");
+        Scanner teclado = new Scanner(System.in);
+      
+        
+       
         //----------------------------------------------
         //                 Procesamiento 
         //----------------------------------------------
-        // Primera expresi√≥n
-        operacion1 = ((x  / num1) + num2);
+        // Cuando haya introducido una opciÛn v·lida, llevamos a cabo la acciÛn oportuna
+        //  -Si nos indica 'Salir', nos despedimos y terminamos
+        //  -Si nos indica las opciones 1 o 2
+        //      -Realizamos los c·lculos oportunos
+
+      // uslizamos el do - while para crear la estructura repetitiva depues de usar el menu de opciones  
+     do {   
         
-        // Segunda expresi√≥n
-        operacion2 = ((Math.pow(x, 2)) / (Math.pow(y, 2))) + ((Math.pow(y, 2)) / (Math.pow(z, 2)));
+        System.out.println("Introduzca una opcion"); 
+        option = teclado.nextShort();
+   
+        switch (option)
         
-        // Tercera expresi√≥n
-        operacion3 = ((Math.pow(x, 2)) + (3*(x)*(y)) +(Math.pow(y, 2))) / ((1)/(Math.pow(x, 2)));
+        { 
         
-        // Cuarta expresi√≥n
+            case 1 -> {
+                System.out.println("Introduce la antiguedad del empleado 1");
+                aÒosEmpleado1 = teclado.nextInt();
+                System.out.println("Introce la antiguedad del empleado 2");
+                aÒosEmpleado2 = teclado.nextInt();
+                System.out.println("Introce la antiguedad del empleado 3");
+                aÒosEmpleado3 = teclado.nextInt();
+                
+                int extra1;
+                extra1 = aÒosEmpleado1 > 5 ? pagaAlta : pagaBaja;
+                int extra2;
+                extra2 = aÒosEmpleado2 > 5 ? pagaAlta : pagaBaja;
+                int extra3;
+                extra3 = aÒosEmpleado3 > 5 ? pagaAlta : pagaBaja;
+                
+                System.out.println("Los salarios mensuales de los Empleados son");
+                System.out.println("Empleado 1 " + ((sueldobase  + (extraPoraÒo * aÒosEmpleado1)) + extra1));
+                System.out.println("Empleado 2 " + ((sueldobase  + (extraPoraÒo * aÒosEmpleado2)) + extra2));
+                System.out.println("Empleado 3 " + ((sueldobase  + (extraPoraÒo * aÒosEmpleado3)) + extra3));
+                      }
+            case 2 -> {  
+                System.out.println(" El salario anual y mensual del Empleado Nuevo es el siguiente : ");
+                System.out.println(" Anual : " + ((sueldobase * 14) + (pagaBaja)/5)) ;    
+                System.out.println("Mensual: " + (sueldobase + (((pagaBaja)/5))/12));
+                      }
+            case 3 ->{System.out.println("Saliendo del Programa... "); 
+                     }
+            default -> System.out.println(" Error. Opcion no valida... Vuelve a intentarlo");
+                     }
+            }while (option !=3);
+   
+   
+            }}
+           
         
         
-        // Quinta expresi√≥n
-        
-        
-        // Sexta expresi√≥n
-        
-        
-        // S√©ptima expresi√≥n
-        
-        
+
         //----------------------------------------------
         //              Salida de resultados 
         //----------------------------------------------
-        System.out.println();
-        System.out.println("RESULTADO");
-        System.out.println(" Operacion 1 = " + operacion1);
-        System.out.println("Operacion 2 = " + operacion2);
-        System.out.println("Operacion 3 = " + operacion3);
-        System.out.println("---------");
-    }
-}
+        
+                   
+
